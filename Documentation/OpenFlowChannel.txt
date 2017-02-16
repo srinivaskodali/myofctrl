@@ -1,0 +1,12 @@
+OpenFlow channel is used to exchange OpenFlow messages between  an openflow switch and openflow controller.
+This is a communication medium between OF switch and OF Controller.
+
+OF Controller must be able to accept connections from one or more switches over TCP/IP connectivity.
+If switch is connected to multiple controllers, then one of the switch controllers will as Master and all others will act as either as slave or equal.
+
+OF controller should accept connections from switches over TCP/IP usinf default port or user defined port.
+connection can be TCP or TLS(optional)
+
+Default OF port = 6653 by IANA
+
+When controller wants to change its role, it should form role request message(OFPT_ROLE_REQUEST) and send the message to switch and should wait for role_reply message(OFPT_ROLE_REPLY). if the role value in reply message is equal, role of the controller is changed successfully.
